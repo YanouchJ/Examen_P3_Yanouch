@@ -31,7 +31,6 @@ int main(int argc, char const *argv[])
     case 1: // Bloque para ingresar los datos por teclado
         printf("Ingrese el numero de productos a ingresar\n");
         scanf("%d", &cant);
-
         struct producto
         {
             char codigo[25];
@@ -42,9 +41,10 @@ int main(int argc, char const *argv[])
         };
 
         struct producto ingresoDatos[300];
-        if (archivo = fopen("Datos.txt", "w"))
+        if (archivo = fopen("Datos.txt", "w+"))
         {
             printf("El archivo se ha abierto correctamente. INGRESE LOS DATOS. \n ");
+            //Ingresar los datos por teclado
             for (int i = 0; i < cant; i++)
             {
                 printf("Codigo del producto: \n");
@@ -62,6 +62,7 @@ int main(int argc, char const *argv[])
                 printf("Precio: \n");
                 fflush(stdin);
                 scanf("%f", &ingresoDatos[i].precioCompra);
+                fputs(" ", archivo);
             }
         }
         else
@@ -75,21 +76,11 @@ int main(int argc, char const *argv[])
         printf("DATOS INGRESADOS. \n ");
         if (archivo = fopen("Datos.txt", "r"))
         {
-            printf("El archivo se ha abierto correctamente. INGRESE LOS DATOS. \n ");
+            printf("El archivo se ha abierto correctamente. \n ");
             for (int i = 0; i < cant; i++)
             {
-                printf("%c\n", ingresoDatos[i].codigo, 25, stdin);
-                printf("%c\n", ingresoDatos[i].nombreProd, 50, stdin);
-                fgets(ingresoDatos[i].nombreProd, 50, stdin);
-                printf("Descripcion del producto: \n");
-                fflush(stdin);
-                fgets(ingresoDatos[i].descrProd, 50, stdin);
-                printf("Cantidad: \n");
-                fflush(stdin);
-                scanf("%d", &ingresoDatos[i].cantidad);
-                printf("Precio: \n");
-                fflush(stdin);
-                scanf("%f", &ingresoDatos[i].precioCompra);
+                printf("Codigo: \tNombre \tDescripcion \tCantidad \tPrecio");
+                printf("%c \t%c \t%c \t%d \t%f", ingresoDatos[i].codigo, ingresoDatos[i].nombreProd, ingresoDatos[i].descrProd, ingresoDatos[i].cantidad, ingresoDatos[i].precioCompra);
             }
         }
         else
