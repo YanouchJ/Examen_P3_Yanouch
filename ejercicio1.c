@@ -18,11 +18,11 @@ Menu
 
 int main(int argc, char const *argv[])
 {
-    // Declaracion del archivo
+    // Declaracion del archivo y variables
     FILE *archivo;
     char ingresoDatos[300]; // Cadena para guardar los datos ingresados
-
     int opcion, cant;
+
     printf("Seleccione la opcion.\n");
     printf("1. Ingresar datos \n2. Mostrar datos \n3. Salir \n--> ");
     scanf("%d", &opcion);
@@ -44,7 +44,7 @@ int main(int argc, char const *argv[])
         if (archivo = fopen("Datos.txt", "w+"))
         {
             printf("El archivo se ha abierto correctamente. INGRESE LOS DATOS. \n ");
-            //Ingresar los datos por teclado
+            // Ingresar los datos por teclado
             for (int i = 0; i < cant; i++)
             {
                 printf("Codigo del producto: \n");
@@ -62,7 +62,6 @@ int main(int argc, char const *argv[])
                 printf("Precio: \n");
                 fflush(stdin);
                 scanf("%f", &ingresoDatos[i].precioCompra);
-                fputs(" ", archivo);
             }
         }
         else
