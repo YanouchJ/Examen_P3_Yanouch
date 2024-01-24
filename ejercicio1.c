@@ -16,14 +16,29 @@ Menu
 
 int main(int argc, char const *argv[])
 {
-    struct producto
+    int opcion;
+    printf("Seleccione la opcion.\n");
+    printf("1. Ingresar datos \n2. Mostrar datos \n3.Salir ");
+    switch(opcion)
     {
-        char codigo[25];
-        char nombreProd[50];
-        char descProd[50];
-        int cantidad;
-        float precioCompra;
-    };
+        case 1:
+        printf("INGRESE LOS DATOS. \n ");
+
+        break;
+
+
+
+        case 2:
+        printf("DATOS INGRESADOS. \n ");
+        break;
+
+
+
+        case 3:
+
+        break;
+        default("No existe la opcion que ingresaste.\n");
+    }
 
     return 0;
 }
